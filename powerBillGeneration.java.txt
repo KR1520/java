@@ -1,0 +1,141 @@
+
+import java.util.Scanner;
+public class powerbillgeneration{
+    public static void main(String args[]) {
+    String serviceId;
+    String customername;
+    int currentreading;
+    int previousreading;
+    String reply;
+    String customertype;
+    int units;
+    float billamount;
+    float minbill;
+    float servicecharges;
+    float totalbill;
+    
+    Scanner sc=new Scanner(System.in);
+    System.out.println("customertype menu");
+    System.out.println("1 domestic");
+    System.out.println("2 commercial");
+    System.out.println("3 industrial");
+    System.out.println("enter choice 1/2/3");
+    int choice=sc.nextInt();
+    if(choice<1||choice>3)
+    {
+      System.out.println("invalid input");
+      System.exit(0);
+     }
+    System.out.println("enter serviceId");
+    serviceId=sc.next();
+    System.out.println("enter customername");
+    customername=sc.next();
+    System.out.println("enter currentreading");
+     currentreading=sc.nextInt();
+    System.out.println("enter previousreading");
+     previousreading=sc.nextInt();
+    units=currentreading-previousreading;
+    if(units<0)
+    {
+        System.out.println("invalid input");
+        System.exit(0);
+    }
+      int Switch;
+    {
+        case1:
+            customertype="domestic";
+            if(units<50)
+            {
+                billamount=0.0f;
+            }
+            else if(units<100)
+            {
+                billamount=units*3.0f;
+            }
+            else if(units<500)
+            {
+                billamount=units*4.0f;
+            }
+            else 
+            {
+                billamount=units*5.0f;
+            }
+               minbill=10.0f;
+               break;
+          case2:
+                customertype="commercial";
+                if(units<50)
+                {
+                    billamount=units*3.0f;
+                }
+                else if(units<100)
+                {
+                    billamount=units*5.0f;
+                }
+                else if(units<500)
+                {
+                    billamount=units*6.0f;
+                }
+                else 
+                {
+                    billamount=units*7.0f;
+                }
+                   minbill=100.0f;
+                   break;
+             case3:
+                    customertype="industrial";
+                    if(units<50)
+                    {
+                        billamount=units*4.0f;
+                    }
+                    else if(units<100)
+                    {
+                        billamount=units*6.0f;
+                    }
+                    else if(units<500)
+                    {
+                        billamount=units*7.0f;
+                    }
+                    else
+                    {
+                        billamount=units*8.0f;
+                    }
+                       minbill=500.0f;
+                       break;
+         
+     }               
+                    
+    
+    if(billamount<minbill)
+    {
+        billamount = minbill;
+    }
+    servicecharges = billamount * 0.05f;
+    totalbill = billamount + servicecharges;
+    System.out.println("==========");
+    System.out.println("telangana transco");
+    System.out.println("===========");
+    System.out.println("customer type  :"+customertype);
+    System.out.println("serviceId   :"+serviceId);
+    System.out.println("customer name   :"+customername);
+    System.out.println("current reading  :"+currentreading);
+    System.out.println("previous reading   :"+previousreading);
+    System.out.println("=========");
+    System.out.println("units consumed  :"+units);
+    System.out.println("=========");
+    System.out.println("billamount   :"+billamount);
+    System.out.println("servicecharges   :"+servicecharges);
+    System.out.println("totalbill   :"+totalbill);
+   }
+} 
+    
+    
+    
+    
+    
+
+    
+    
+    
+        
+   
